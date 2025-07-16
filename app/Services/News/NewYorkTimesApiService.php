@@ -17,16 +17,22 @@ class NewYorkTimesApiService implements NewsIntegrationInterface
         $this->setProviderSlug('nyt');
     }
 
-    public function fetchArticles(int $page = 1, int $pageSize = 10): array
+    public function fetchArticles(int $page = 1, int $pageSize = 10, array $params = []): array
     {
         $apiKey = config('services.newyorktimes.key');
         $baseUrl = config('services.newyorktimes.base_url');
 
-        $response = Http::get($baseUrl . 'home.json', [
+        $allowed = ['q', 'category', 'country', 'sources'];
+
+        $filteredParams = array_intersect_key($params, array_flip($allowed));
+
+        $query = array_merge($filteredParams, [
             'api-key' => $apiKey,
             'sort' => 'newest',
             'page' => $page,
         ]);
+
+        $response = Http::get($baseUrl . 'world.json', $query);
 
         return collect($response->json('results', []))
             ->map(fn ($item) => $this->transformer->transform($item))
