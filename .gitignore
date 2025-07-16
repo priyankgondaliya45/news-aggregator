@@ -1,0 +1,10 @@
+/vendor/
+/node_modules/
+.env
+.phpunit.result.cache
+storage/*.key
+.idea/
+/*.log
+/public/storage
+/database/*.sqlite
+.env.*
