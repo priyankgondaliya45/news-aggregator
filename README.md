@@ -1,13 +1,3 @@
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
 # Laravel News Aggregator
 
 A modular, extensible Laravel-based news aggregator that fetches, transforms, and stores articles from multiple providers like **NewsAPI**, **The Guardian**, and **The New York Times**.
@@ -59,11 +49,6 @@ cp .env.example .env
 ```
 Then update the .env file with your values:
 ```bash
-APP_NAME=Laravel
-APP_URL=http://127.0.0.1:8000
-DB_DATABASE=news_aggregator
-DB_USERNAME=root
-DB_PASSWORD=
 NEWSAPI_KEY=your_newsapi_key
 GUARDIAN_KEY=your_guardian_key
 NYT_KEY=your_nyt_key
@@ -115,7 +100,7 @@ Saves article, author, source, category, and provider
 
 | Parameter     | Type     | Description                |
 | :--------     | :------- | :------------------------- |
-| `name` | `string` | Filter by author name |
+| `name` | `string` | Filter by Author |
 | `provider_id` | `int` | Filter by Provider |
 
 #### Get all news categories
@@ -125,7 +110,7 @@ Saves article, author, source, category, and provider
 
 | Parameter     | Type     | Description                |
 | :--------     | :------- | :------------------------- |
-| `name` | `string` | Filter by category name |
+| `name` | `string` | Filter by Category |
 | `provider_id` | `int` | Filter by Provider |
 
 #### Get all news sources
@@ -135,7 +120,7 @@ Saves article, author, source, category, and provider
 
 | Parameter     | Type     | Description                |
 | :--------     | :------- | :------------------------- |
-| `name` | `string` | Filter by source name |
+| `name` | `string` | Filter by Source |
 | `provider_id` | `int` | Filter by Provider |
 
 #### Get all news providers
@@ -145,7 +130,7 @@ Saves article, author, source, category, and provider
 
 | Parameter     | Type     | Description                |
 | :--------     | :------- | :------------------------- |
-| `name` | `string` | Filter by provider name |
+| `name` | `string` | Filter by Provider |
 | `provider_id` | `int` | Filter by Provider |
 
 ### 8. Project Structure
