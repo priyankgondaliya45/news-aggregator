@@ -86,30 +86,29 @@ Fetches in pages (10 per request)
 Applies transformers for normalization
 Saves article, author, source, category, and provider
 ```
-### 7. API Usage
-Endpoint
-```bash
-GET /api/articles
+## 7. API Reference
+
+#### Get all articles
+
+```http
+  GET /api/articles
 ```
-```css
-Query Parameters
-Param	        Description
-category_id	    Filter by news category
-author_id	    Filter by author
-provider_id	    Filter by provider
-source_id	    Filter by source
-published_from	Start date (YYYY-MM-DD)
-published_to	End date (YYYY-MM-DD)
-```
-```bash
-GET /api/articles?category_id=3&author_id=5&published_from=2024-01-01
-```
+
+| Parameter     | Type     | Description                |
+| :--------     | :------- | :------------------------- |
+| `category_id` | `int` | Filter by News Category |
+| `provider_id` | `int` | Filter by Provider |
+| `source_id` | `int` | Filter by Source |
+| `author_id` | `int` | Filter by Author |
+| `published_from` | `date` | Start date (YYYY-MM-DD) |
+| `published_to` | `date` | End date (YYYY-MM-DD) |
+
 ### 8. Project Structure
 ```css
 app/
 ├── Console/
 │   └── Commands/
-│           ├── FetchNewsArticles.php
+│       ├── FetchNewsArticles.php
 ├── DTOs/
 │       ├── Contracts/
 |       |      ├── ArticleTransformerInterface.php
@@ -119,8 +118,8 @@ app/
 |       |      ├── NewYorkTimesTransformer.php
 |       ├── ArticleResponseDTO.php
 ├── Http/
-│     ├── Controllers/
-|     |      ├── ArticleController.php
+│       ├── Controllers/
+|       |      ├── ArticleController.php
 ├── Models/
 │   ├── Article.php
 │   ├── Author.php
