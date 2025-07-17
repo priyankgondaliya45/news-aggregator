@@ -38,7 +38,7 @@ Articles are normalized using DTOs and stored in a relational structure with sup
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourname/news-aggregator.git
+git clone https://github.com/priyankgondaliya45/news-aggregator.git
 cd news-aggregator
 ```
 ### 2. Install dependencies
