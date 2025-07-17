@@ -120,6 +120,20 @@ app/
 ├── Http/
 │       ├── Controllers/
 |       |      ├── ArticleController.php
+|       |      ├── AuthorController.php
+|       |      ├── NewsCategoryController.php
+|       |      ├── NewsProviderController.php
+|       |      ├── NewsSourcesController.php
+│       ├── Requests/
+|       |      ├── AuthorFilterRequest.php
+|       |      ├── CategoryFilterRequest.php
+|       |      ├── ProviderFilterRequest.php
+|       |      ├── SourceFilterRequest.php
+│       ├── Resources/
+|       |      ├── AuthorResource.php
+|       |      ├── NewsCategoryResource.php
+|       |      ├── NewsProviderResource.php
+|       |      ├── NewsSourceResource.php
 ├── Models/
 │   ├── Article.php
 │   ├── Author.php
