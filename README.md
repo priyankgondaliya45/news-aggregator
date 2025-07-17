@@ -131,7 +131,6 @@ Saves article, author, source, category, and provider
 | Parameter     | Type     | Description                |
 | :--------     | :------- | :------------------------- |
 | `name` | `string` | Filter by Provider |
-| `provider_id` | `int` | Filter by Provider |
 
 ### 8. Project Structure
 ```css
