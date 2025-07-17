@@ -3,6 +3,11 @@
 
 A brief description of what this project does and who it's for
 
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
 # Laravel News Aggregator
 
 A modular, extensible Laravel-based news aggregator that fetches, transforms, and stores articles from multiple providers like **NewsAPI**, **The Guardian**, and **The New York Times**.
@@ -102,6 +107,46 @@ Saves article, author, source, category, and provider
 | `author_id` | `int` | Filter by Author |
 | `published_from` | `date` | Start date (YYYY-MM-DD) |
 | `published_to` | `date` | End date (YYYY-MM-DD) |
+
+#### Get all authors
+```http
+  GET /api/authors
+```
+
+| Parameter     | Type     | Description                |
+| :--------     | :------- | :------------------------- |
+| `name` | `string` | Filter by author name |
+| `provider_id` | `int` | Filter by Provider |
+
+#### Get all news categories
+```http
+  GET /api/news-categories
+```
+
+| Parameter     | Type     | Description                |
+| :--------     | :------- | :------------------------- |
+| `name` | `string` | Filter by category name |
+| `provider_id` | `int` | Filter by Provider |
+
+#### Get all news sources
+```http
+  GET /api/news-sources
+```
+
+| Parameter     | Type     | Description                |
+| :--------     | :------- | :------------------------- |
+| `name` | `string` | Filter by source name |
+| `provider_id` | `int` | Filter by Provider |
+
+#### Get all news providers
+```http
+  GET /api/news-providers
+```
+
+| Parameter     | Type     | Description                |
+| :--------     | :------- | :------------------------- |
+| `name` | `string` | Filter by provider name |
+| `provider_id` | `int` | Filter by Provider |
 
 ### 8. Project Structure
 ```css
