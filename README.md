@@ -175,8 +175,8 @@ app/
 │   └── News/
 │       ├── Integrations/
 │       │   ├── NewsApiService.php
-│       │   ├── GuardianService.php
-│       │   └── NYTimesService.php
+│       │   ├── GuardianApiService.php
+│       │   └── NewYorkTimesApiService.php
 |       |   └── NewsAggregatorService.php
 ├── Traits/
 │   ├── ResolvesNewsProvider.php
