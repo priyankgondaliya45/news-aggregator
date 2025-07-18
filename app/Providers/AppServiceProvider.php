@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
         ], 'news_integrations');
 
         $this->app->singleton(NewsAggregatorService::class, function ($app) {
-        return new NewsAggregatorService($app->tagged('news_integrations'));
-    });
+            return new NewsAggregatorService($app->tagged('news_integrations'));
+        });
     }
 
     /**
