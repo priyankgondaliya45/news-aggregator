@@ -26,11 +26,15 @@ class NewsApiService implements NewsIntegrationInterface
 
         $filteredParams = array_intersect_key($params, array_flip($allowed));
 
+        // Set default country if not provided
+        if (!isset($filteredParams['country'])) {
+            $filteredParams['country'] = 'us';
+        }
+
         $query = array_merge($filteredParams, [
             'apiKey' => $apiKey,
             'page' => $page,
             'pageSize' => $pageSize,
-            'country' => $filteredParams['country'] ?? 'us',
         ]);
 
         $response = Http::get($baseUrl . 'top-headlines', $query);
