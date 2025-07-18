@@ -154,11 +154,13 @@ app/
 |       |      ├── NewsProviderController.php
 |       |      ├── NewsSourcesController.php
 │       ├── Requests/
+|       |      ├── ArticleFilterRequest.php
 |       |      ├── AuthorFilterRequest.php
 |       |      ├── CategoryFilterRequest.php
 |       |      ├── ProviderFilterRequest.php
 |       |      ├── SourceFilterRequest.php
 │       ├── Resources/
+|       |      ├── ArticleResource.php
 |       |      ├── AuthorResource.php
 |       |      ├── NewsCategoryResource.php
 |       |      ├── NewsProviderResource.php
