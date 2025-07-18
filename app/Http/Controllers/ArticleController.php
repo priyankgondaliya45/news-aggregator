@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleFilterRequest;
+use App\Http\Resources\ArticleResource;
 use Illuminate\Http\Request;
 use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    public function index(Request $request)
+    public function index(ArticleFilterRequest $request)
     {
         $query = Article::with(['author', 'source', 'provider', 'category']);
 
@@ -35,8 +37,10 @@ class ArticleController extends Controller
             $query->whereDate('published_at', '<=', $request->published_to);
         }
 
-        $articles = $query->latest('published_at')->paginate(20);
+        $perPage = $request->input('per_page', 20);
 
-        return response()->json($articles);
+        $articles = $query->latest('published_at')->paginate($perPage);
+
+        return ArticleResource::collection($articles);
     }
 }
