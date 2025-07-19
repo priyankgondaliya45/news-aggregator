@@ -13,20 +13,28 @@ class ArticleController extends Controller
     {
         $query = Article::with(['author', 'source', 'provider', 'category']);
 
-        if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
-        }
+        $this->applyFilters($query, $request);
 
-        if ($request->filled('author_id')) {
-            $query->where('author_id', $request->author_id);
-        }
+        $articles = $query
+            ->latest('published_at')
+            ->paginate($request->input('per_page', 20));
 
-        if ($request->filled('source_id')) {
-            $query->where('source_id', $request->source_id);
-        }
+        return ArticleResource::collection($articles);
+    }
 
-        if ($request->filled('provider_id')) {
-            $query->where('provider_id', $request->provider_id);
+    protected function applyFilters($query, $request)
+    {
+        $filters = [
+            'category_id',
+            'author_id',
+            'source_id',
+            'provider_id',
+        ];
+
+        foreach ($filters as $filter) {
+            if ($request->filled($filter)) {
+                $query->where($filter, $request->$filter);
+            }
         }
 
         if ($request->filled('published_from')) {
@@ -36,11 +44,5 @@ class ArticleController extends Controller
         if ($request->filled('published_to')) {
             $query->whereDate('published_at', '<=', $request->published_to);
         }
-
-        $perPage = $request->input('per_page', 20);
-
-        $articles = $query->latest('published_at')->paginate($perPage);
-
-        return ArticleResource::collection($articles);
     }
 }
