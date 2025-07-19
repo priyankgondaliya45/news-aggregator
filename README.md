@@ -52,6 +52,7 @@ Then update the .env file with your values:
 NEWSAPI_KEY=your_newsapi_key
 GUARDIAN_KEY=your_guardian_key
 NYT_KEY=your_nyt_key
+PAGINATION_LIMIT=set_api_response_limit
 ```
 ### 4. Generate Application Key
 ```bash
