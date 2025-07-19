@@ -42,7 +42,12 @@ return [
 
     'newyorktimes' => [
         'key' => env('NEWYORK_TIMES_KEY'),
-        'base_url' => 'https://api.nytimes.com/svc/topstories/v2/',
+        // 'base_url' => 'https://api.nytimes.com/svc/topstories/v2/',
+        'base_url' => 'https://api.nytimes.com/svc/news/v3/content/nyt/',
+        'sections' => [
+            'world',
+            'business',
+        ],
     ],
 
     'guardian' => [

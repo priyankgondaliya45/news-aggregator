@@ -11,13 +11,14 @@ class NewsProviderController extends Controller
 {
     public function index(ProviderFilterRequest $request)
     {
+        $limit = config('news-aggregator.pagination_limit');
         $query = NewsProvider::query();
 
         if ($request->filled('name')) {
             $query->where('name', 'like', '%' . $request->name . '%');
         }
 
-        $perPage = $request->input('per_page', 20);
+        $perPage = $request->input('per_page', $limit);
 
         $providers = $query->orderBy('name')->paginate($perPage);
 

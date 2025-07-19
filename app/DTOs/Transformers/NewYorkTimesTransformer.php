@@ -17,13 +17,8 @@ class NewYorkTimesTransformer implements ArticleTransformerInterface
             url: $item['url'],
             urlToImage: $item['multimedia'][0]['url'] ?? null,
             category: $item['section'] ?? null,
-            sourceName: 'New York Times',
+            sourceName: $item['source'] ?? 'New York Times',
             publishedAt: new \DateTime($item['published_date'] ?? 'now')
         );
     }
 }
-
-
-
-
-?>

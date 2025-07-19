@@ -11,6 +11,7 @@ class NewsCategoryController extends Controller
 {
     public function index(CategoryFilterRequest $request)
     {
+        $limit = config('news-aggregator.pagination_limit');
         $query = NewsCategory::with('provider');
 
         if ($request->filled('provider_id')) {
@@ -20,8 +21,7 @@ class NewsCategoryController extends Controller
         if ($request->filled('name')) {
             $query->where('name', 'like', '%' . $request->name . '%');
         }
-
-        $perPage = $request->input('per_page', 20);
+        $perPage = $request->input('per_page', $limit);
 
         $categories = $query->orderBy('name')->paginate($perPage);
 

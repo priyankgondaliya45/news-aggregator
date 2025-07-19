@@ -11,6 +11,7 @@ class AuthorController extends Controller
 {
     public function index(AuthorFilterRequest $request)
     {
+        $limit = config('news-aggregator.pagination_limit');
         $query = Author::with('provider');
 
         if ($request->filled('provider_id')) {
@@ -21,7 +22,7 @@ class AuthorController extends Controller
             $query->where('name', 'like', '%' . $request->name . '%');
         }
 
-        $perPage = $request->input('per_page', 20);
+        $perPage = $request->input('per_page', $limit);
 
         $authors = $query->orderBy('name')->paginate($perPage);
 

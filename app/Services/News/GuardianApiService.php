@@ -23,11 +23,9 @@ class GuardianApiService implements NewsIntegrationInterface
         $apiKey = config('services.guardian.key');
         $baseUrl = config('services.guardian.base_url');
 
-        // Only allow whitelisted params
         $allowed = ['q', 'tag', 'from-date', 'to-date', 'section'];
         $filteredParams = array_intersect_key($params, array_flip($allowed));
 
-        // Final query params
         $query = array_merge($filteredParams, [
             'page' => $page,
             'page-size' => $pageSize,

@@ -11,6 +11,7 @@ class NewsSourcesController extends Controller
 {
     public function index(SourceFilterRequest $request)
     {
+        $limit = config('news-aggregator.pagination_limit');
         $query = NewsSource::with('provider');
 
         if ($request->filled('provider_id')) {
@@ -21,7 +22,7 @@ class NewsSourcesController extends Controller
             $query->where('name', 'like', '%' . $request->name . '%');
         }
 
-        $perPage = $request->input('per_page', 20);
+        $perPage = $request->input('per_page', $limit);
 
         $sources = $query->orderBy('name')->paginate($perPage);
 

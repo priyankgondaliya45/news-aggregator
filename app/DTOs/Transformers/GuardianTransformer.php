@@ -11,11 +11,11 @@ class GuardianTransformer implements ArticleTransformerInterface
     {
         return new ArticleResponseDTO(
             title: $item['webTitle'] ?? 'Untitled',
-            description: null, 
-            content: null,     
-            author: null,      
+            description: null,
+            content: null,
+            author: null,
             url: $item['webUrl'],
-            urlToImage: null,  
+            urlToImage: null,
             category: $this->extractSectionFromId($item['id'] ?? ''),
             sourceName: 'The Guardian',
             publishedAt: new \DateTime($item['webPublicationDate'] ?? 'now')
@@ -27,9 +27,4 @@ class GuardianTransformer implements ArticleTransformerInterface
         $parts = explode('/', $id);
         return $parts[0] ?? null;
     }
-
 }
-
-
-
-?>

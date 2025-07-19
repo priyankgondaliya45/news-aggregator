@@ -11,13 +11,14 @@ class ArticleController extends Controller
 {
     public function index(ArticleFilterRequest $request)
     {
+        $limit = config('news-aggregator.pagination_limit');
         $query = Article::with(['author', 'source', 'provider', 'category']);
 
         $this->applyFilters($query, $request);
 
         $articles = $query
             ->latest('published_at')
-            ->paginate($request->input('per_page', 20));
+            ->paginate($request->input('per_page', $limit));
 
         return ArticleResource::collection($articles);
     }
